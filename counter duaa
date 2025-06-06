@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>عداد الأذكار 💗</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: 'Tajawal', 'Arial', sans-serif;
+      color: #6a004e;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      color: #d63384;
+    }
+
+    textarea {
+      width: 90%;
+      max-width: 400px;
+      height: 100px;
+      padding: 12px;
+      border-radius: 15px;
+      border: 2px solid #ffb6c1;
+      background-color: #fff0f5;
+      color: #6a004e;
+      font-size: 1.1em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      resize: none;
+    }
+
+    .counter {
+      font-size: 2.5em;
+      margin: 25px 0;
+      background-color: #ffcce5;
+      display: inline-block;
+      padding: 20px 30px;
+      border-radius: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      font-weight: bold;
+    }
+
+    button {
+      background-color: #ff99cc;
+      border: none;
+      color: white;
+      padding: 12px 28px;
+      margin: 10px;
+      border-radius: 25px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    }
+
+    button:hover {
+      background-color: #ff80bf;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #aa4b77;
+    }
+  </style>
+</head>
+<body>
+  <h1>عداد الأذكار 💗</h1>
+
+  <textarea id="dhikrInput" placeholder="اكتبي الذكر ديالك هنا..."></textarea>
+
+  <div class="counter" id="counter">0</div><br />
+
+  <button onclick="increment()">سبح</button>
+  <button onclick="reset()">إعادة</button>
+
+  <footer>🌸 موقع لعدّ الأذكار خاص بك 🌸</footer>
+
+  <script>
+    let count = 0;
+    function increment() {
+      count++;
+      document.getElementById('counter').innerText = count;
+    }
+
+    function reset() {
+      count = 0;
+      document.getElementById('counter').innerText = count;
+    }
+  </script>
+</body>
+</html>
