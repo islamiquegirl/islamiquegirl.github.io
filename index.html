@@ -1,111 +1,98 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>موقع الأذكار - IslamiqueGirl</title>
-    <style>
-        body {
-            font-family: "Arial", sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
-            direction: rtl;
-            padding: 20px;
-            max-width: 600px;
-            margin: auto;
-        }
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            font-size: 18px;
-            margin-bottom: 10px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-        }
-        .dhikr {
-            background-color: #dff0d8;
-            border: 1px solid #3c763d;
-            border-radius: 8px;
-            padding: 15px;
-            font-size: 22px;
-            line-height: 1.6;
-            margin-bottom: 10px;
-            min-height: 60px;
-            text-align: center;
-        }
-        .count {
-            font-weight: bold;
-            color: #27ae60;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        button {
-            padding: 12px 25px;
-            font-size: 18px;
-            border: none;
-            border-radius: 6px;
-            background-color: #27ae60;
-            color: white;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-        button:hover {
-            background-color: #2ecc71;
-        }
-        .buttons {
-            text-align: center;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>عداد الأذكار 💗</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: 'Tajawal', 'Arial', sans-serif;
+      color: #6a004e;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      color: #d63384;
+    }
+
+    textarea {
+      width: 90%;
+      max-width: 400px;
+      height: 100px;
+      padding: 12px;
+      border-radius: 15px;
+      border: 2px solid #ffb6c1;
+      background-color: #fff0f5;
+      color: #6a004e;
+      font-size: 1.1em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      resize: none;
+    }
+
+    .counter {
+      font-size: 2.5em;
+      margin: 25px 0;
+      background-color: #ffcce5;
+      display: inline-block;
+      padding: 20px 30px;
+      border-radius: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      font-weight: bold;
+    }
+
+    button {
+      background-color: #ff99cc;
+      border: none;
+      color: white;
+      padding: 12px 28px;
+      margin: 10px;
+      border-radius: 25px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    }
+
+    button:hover {
+      background-color: #ff80bf;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #aa4b77;
+    }
+  </style>
 </head>
 <body>
+  <h1>عداد الأذكار 💗</h1>
 
-    <h1>موقع الأذكار - IslamiqueGirl</h1>
+  <textarea id="dhikrInput" placeholder="اكتبي الذكر ديالك هنا..."></textarea>
 
-    <input type="text" id="inputDhikr" placeholder="كتب الذكر ديالك هنا" />
+  <div class="counter" id="counter">0</div><br />
 
-    <div class="dhikr" id="displayDhikr">الذكر يظهر هنا</div>
-    <div class="count" id="dhikrCount">العدد: 0</div>
+  <button onclick="increment()">سبح</button>
+  <button onclick="reset()">إعادة</button>
 
-    <div class="buttons">
-        <button onclick="setDhikr()">عرض الذكر</button>
-        <button onclick="incrementCount()">تكرار الذكر</button>
-        <button onclick="resetCount()">إعادة ضبط العداد</button>
-    </div>
+  <footer>🌸 موقع لعدّ الأذكار خاص بك 🌸</footer>
 
-    <script>
-        let count = 0;
-        let currentDhikr = '';
+  <script>
+    let count = 0;
+    function increment() {
+      count++;
+      document.getElementById('counter').innerText = count;
+    }
 
-        function setDhikr() {
-            const input = document.getElementById('inputDhikr').value.trim();
-            if (input === '') {
-                alert('من فضلك، كتب الذكر أولاً.');
-                return;
-            }
-            currentDhikr = input;
-            document.getElementById('displayDhikr').innerText = currentDhikr;
-            count = 0;
-            document.getElementById('dhikrCount').innerText = 'العدد: ' + count;
-        }
-
-        function incrementCount() {
-            if (currentDhikr === '') {
-                alert('من فضلك، عرض الذكر أولاً.');
-                return;
-            }
-            count++;
-            document.getElementById('dhikrCount').innerText = 'العدد: ' + count;
-        }
-
-        function resetCount() {
-            count = 0;
-            document.getElementById('dhikrCount').innerText = 'العدد: ' + count;
-        }
-    </script>
-
+    function reset() {
+      count = 0;
+      document.getElementById('counter').innerText = count;
+    }
+  </script>
 </body>
 </html>
+
