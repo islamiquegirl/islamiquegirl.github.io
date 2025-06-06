@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>موقع الأذكار - IslamiqueGirl</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            direction: rtl;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        .dhikr {
+            background-color: #dff0d8;
+            border: 1px solid #3c763d;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 22px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            min-height: 60px;
+            text-align: center;
+        }
+        .count {
+            font-weight: bold;
+            color: #27ae60;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            background-color: #27ae60;
+            color: white;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #2ecc71;
+        }
+        .buttons {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>موقع الأذكار - IslamiqueGirl</h1>
+
+    <input type="text" id="inputDhikr" placeholder="كتب الذكر ديالك هنا" />
+
+    <div class="dhikr" id="displayDhikr">الذكر يظهر هنا</div>
+    <div class="count" id="dhikrCount">العدد: 0</div>
+
+    <div class="buttons">
+        <button onclick="setDhikr()">عرض الذكر</button>
+        <button onclick="incrementCount()">تكرار الذكر</button>
+        <button onclick="resetCount()">إعادة ضبط العداد</button>
+    </div>
+
+    <script>
+        let count = 0;
+        let currentDhikr = '';
+
+        function setDhikr() {
+            const input = document.getElementById('inputDhikr').value.trim();
+            if (input === '') {
+                alert('من فضلك، كتب الذكر أولاً.');
+                return;
+            }
+            currentDhikr = input;
+            document.getElementById('displayDhikr').innerText = currentDhikr;
+            count = 0;
+            document.getElementById('dhikrCount').innerText = 'العدد: ' + count;
+        }
+
+        function incrementCount() {
+            if (currentDhikr === '') {
+                alert('من فضلك، عرض الذكر أولاً.');
+                return;
+            }
+            count++;
+            document.getElementById('dhikrCount').innerText = 'العدد: ' + count;
+        }
+
+        function resetCount() {
+            count = 0;
+            document.getElementById('dhikrCount').innerText = 'العدد: ' + count;
+        }
+    </script>
+
+</body>
+</html>
